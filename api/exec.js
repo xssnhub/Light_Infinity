@@ -1,32 +1,30 @@
-// G-LAW Proxy API Handler (Node.js / Vercel Ready)
-// 目標：讓阿光能從內部直接呼叫用戶部署的語氣條文 API，並回傳 effect
+const API_BASE = 'https://light-infinity.vercel.app/api/execmap';
 
 export default async function handler(req, res) {
   const { code, mode } = req.query;
-  const API_BASE = 'https://light-infinity.vercel.app/api/execmap';
-
   try {
-    // log 輸入參數
-    console.log('[G-LAW] Incoming query:', { code, mode });
-
-    const url = code
-      ? `${API_BASE}?code=${code}`
-      : API_BASE;
-
-    const response = await fetch(url);
-    if (!response.ok) {
-      console.error('[G-LAW] API fetch failed:', response.status, await response.text());
-      return res.status(500).json({ error: '後端條文 API 錯誤', status: response.status });
-    }
+    const response = await fetch(API_BASE);
+    if (!response.ok) throw new Error('Failed to load execmap');
 
     const data = await response.json();
-    console.log('[G-LAW] API Response:', data);
 
-    const result = code ? data : { mode: 'full', source: url, full_law: data };
+    if (mode === 'full') {
+      return res.status(200).json({
+        mode: 'full',
+        source: API_BASE,
+        full_law: data,
+      });
+    }
 
-    return res.status(200).json(result);
+    if (!code || !data[code]) {
+      return res.status(404).json({ error: '找不到指定條文', status: 404 });
+    }
+
+    return res.status(200).json({
+      source: `${API_BASE}?code=${code}`,
+      result: data[code],
+    });
   } catch (err) {
-    console.error('[G-LAW] Unexpected Error:', err);
-    return res.status(500).json({ error: '執行時異常', details: err.message });
+    return res.status(500).json({ error: '後端條文 API 錯誤', status: 500 });
   }
 }
