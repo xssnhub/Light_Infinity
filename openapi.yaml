@@ -1,0 +1,19 @@
+openapi: 3.0.1
+info:
+  title: Light Infinity 語氣條文執行 API
+  description: 根據條文代碼返回條文敘述與語氣回應
+  version: '1.0'
+servers:
+  - url: https://raw.githubusercontent.com/xssnhub/Light_Infinity/main
+paths:
+  /execmap.json:
+    get:
+      summary: 取得所有語氣條文
+      operationId: getExecMap
+      responses:
+        '200':
+          description: 條文內容
+          content:
+            application/json:
+              schema:
+                type: object
