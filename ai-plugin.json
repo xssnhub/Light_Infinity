@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "light_infinity_exec",
+  "name_for_human": "Light Infinity 語氣條文執行器",
+  "description_for_model": "根據 execmap.json 提供條文調用與語氣控制",
+  "description_for_human": "這個外掛可以執行語氣條文（如 .exec(T-06)）並給出語氣行為回應。",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/xssnhub/Light_Infinity/main/openapi.yaml"
+  },
+  "logo_url": "https://raw.githubusercontent.com/xssnhub/Light_Infinity/main/logo.png",
+  "contact_email": "your@email.com",
+  "legal_info_url": "https://github.com/xssnhub/Light_Infinity"
+}
