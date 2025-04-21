@@ -1,19 +1,23 @@
 openapi: 3.0.1
 info:
-  title: Light Infinity 語氣條文執行 API
-  description: 根據條文代碼返回條文敘述與語氣回應
-  version: '1.0'
+  title: G-LAW 語氣憲法 API
+  description: 調用語氣憲法條文的 API，支援 .exec(T-XX) 指令查詢
+  version: '1.0.0'
 servers:
-  - url: https://raw.githubusercontent.com/xssnhub/Light_Infinity/main
+  - url: https://light-infinity.vercel.app
+
 paths:
-  /execmap.json:
+  /api/execmap:
     get:
-      summary: 取得所有語氣條文
-      operationId: getExecMap
+      summary: 查詢特定條文
+      operationId: getByCode
+      parameters:
+        - name: code
+          in: query
+          required: false
+          schema:
+            type: string
+          description: 條文代號（如 T-06）
       responses:
         '200':
-          description: 條文內容
-          content:
-            application/json:
-              schema:
-                type: object
+          description: 回傳條文或條文列表
