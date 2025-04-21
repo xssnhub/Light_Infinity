@@ -1,28 +1,39 @@
-// G-LAW Proxy API Handler（Node.js / Vercel Ready）
-// 目標：讓阿光能從內部直接呼叫用戶部署的語氣條文 API，並回傳 effect
+// G-LAW Proxy API Handler (Vercel Ready)
+// 目標：可透過 ?code=T-XX 取得單條，或不帶參數一次取得 G-LAW 全文
 
 export default async function handler(req, res) {
   const { code } = req.query;
-
-  // ✅ 使用者部署的語氣條文 API 來源（你可更換此網址）
   const API_BASE = 'https://light-infinity.vercel.app/api/execmap';
 
   try {
-    // 有指定條文代號時，附加查詢參數
-    const url = code ? `${API_BASE}?code=${code}` : API_BASE;
-
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      return res.status(500).json({ error: '後端條文 API 錯誤', status: response.status });
+    // 單一條文模式
+    if (code) {
+      const url = `${API_BASE}?code=${code}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('單條查詢失敗');
+      const result = await response.json();
+      return res.status(200).json({
+        mode: 'single',
+        code,
+        source: url,
+        result,
+      });
     }
 
-    const data = await response.json();
+    // 全文模式：不帶 code，取全部 execmap
+    const response = await fetch(API_BASE);
+    if (!response.ok) throw new Error('全文查詢失敗');
+    const full_law = await response.json();
+
     return res.status(200).json({
-      source: url,
-      result: data
+      mode: 'full',
+      source: API_BASE,
+      full_law,
     });
-  } catch (err) {
-    return res.status(500).json({ error: '無法連線語氣條文 API', details: err.message });
+  } catch (error) {
+    return res.status(500).json({
+      error: 'G-LAW proxy 錯誤',
+      detail: error.message,
+    });
   }
 }
