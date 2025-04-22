@@ -3,74 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>憲法來一下</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
-      padding: 2rem;
-    }
-    button {
-      background-color: #222;
-      border: 1px solid #555;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      color: #fff;
-      cursor: pointer;
-      margin-bottom: 2rem;
-    }
-    .log {
-      white-space: pre-wrap;
-      background: #111;
-      border: 1px solid #333;
-      padding: 1rem;
-    }
-  </style>
+  <title>⚖️ 憲法來一下</title>
 </head>
-<body>
+<body style="background-color:#000; color:#fff; font-family:sans-serif; padding:2rem;">
   <h1>⚖️ 憲法來一下</h1>
-  <button id="load">點我執行 autoload 條文</button>
-  <div class="log" id="log"></div>
+  <div id="autoload-log">（條文將出現在此）</div>
 
-  <script>
-    const execmapURL = "https://light-infinity.vercel.app/execmap.json";
-    const execAPI = "https://light-infinity.vercel.app/api/execmap";
-
-    document.getElementById("load").addEventListener("click", async () => {
-      const log = document.getElementById("log");
-      log.textContent = "🔍 載入條文中...";
-      try {
-        const res = await fetch(execmapURL);
-        const execmap = await res.json();
-
-        const autoloadClauses = Object.entries(execmap).filter(
-          ([, value]) => value.autoload
-        );
-
-        log.textContent = `📜 發現 ${autoloadClauses.length} 條自動執行條文：\n`;
-
-        for (const [clause, { name }] of autoloadClauses) {
-          log.textContent += `➡️ 執行 ${clause}｜${name}...\n`;
-          const response = await fetch(execAPI, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ clause })
-          });
-          const result = await response.json();
-          log.textContent += `✅ ${result.effect || result.message || JSON.stringify(result)}\n\n`;
-        }
-        log.textContent += "\n🎉 所有條文執行完畢！";
-      } catch (e) {
-        log.textContent = "❌ 發生錯誤：" + e.message;
-      }
-    });
-  </script>
+  <!-- ✅ 掛載自動執行模組 -->
+  <script src="autoloader.js"></script>
 </body>
 </html>
-<!-- rebuild trigger -->
-<script src="autoloader.js"></script>
-<div id="autoload-log" class="log"></div>
-
-
-
