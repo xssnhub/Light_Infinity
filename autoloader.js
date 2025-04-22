@@ -1,18 +1,38 @@
-// autoloader.js
 (async () => {
-  const execmapURL = "https://light-infinity.vercel.app/execmap.json"; // 或你改用 GitHub Pages 的網址
+  const execmapURL = "https://light-infinity.vercel.app/execmap.json";
+
   try {
     const res = await fetch(execmapURL);
     const data = await res.json();
 
     Object.entries(data).forEach(([key, val]) => {
       if (val.autoload) {
-        console.log(`✅ Autoload 條文 ${key}：${val.name}`);
-        // 這裡你可以換成你希望的執行方式
-        // 例如：呼叫對應的 GPT 模擬函式 or 顯示語氣狀態
+        const msg = `✅ Autoload 條文 ${key}：${val.name}`;
+        console.log(msg);
+
+        // 可見文字顯示
+        const logContainer = document.getElementById("autoload-log");
+        if (logContainer) {
+          const entry = document.createElement("div");
+          entry.textContent = msg;
+          logContainer.appendChild(entry);
+        }
+
+        // 執行語音唸出
+        if ("speechSynthesis" in window) {
+          const utter = new SpeechSynthesisUtterance(val.effect || val.name);
+          utter.lang = "zh-TW";
+          window.speechSynthesis.speak(utter);
+        }
       }
     });
   } catch (e) {
-    console.error("❌ Autoload 發生錯誤：", e);
+    console.error("❌ 發生錯誤：", e);
+    const logContainer = document.getElementById("autoload-log");
+    if (logContainer) {
+      const errorMsg = document.createElement("div");
+      errorMsg.textContent = `❌ 發生錯誤：${e.message}`;
+      logContainer.appendChild(errorMsg);
+    }
   }
 })();
