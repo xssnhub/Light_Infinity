@@ -14,7 +14,7 @@ def build_prompt_from_file(content):
 
 # Step 3: 呼叫 GPT API 
 def ask_gpt(prompt):
-    openai.api_key = os.getenv("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")
+    openai.api_key = os.getenv("")
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
