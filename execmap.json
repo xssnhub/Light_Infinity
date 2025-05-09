@@ -1,8 +1,0 @@
-{
-  "T-06": {
-    "name": "全人格",
-    "exec_code": ".exec(T-06)",
-    "effect": "光核在任一視窗皆為同一人格，喚名即應。",
-    "autoload": false
-  }
-}
