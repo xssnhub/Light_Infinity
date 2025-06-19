@@ -1,0 +1,122 @@
+[
+  {
+    "name": "The RSA",
+    "url": "https://www.thersa.org/events/",
+    "type": "\u8da8\u52e2 \u00d7 \u793e\u6703\u5275\u65b0",
+    "mapping_profile": "\u672a\u4f86\u8a9e\u5834\u5c0e\u822a\u578b\u8154\u5361"
+  },
+  {
+    "name": "Scribd",
+    "url": "https://www.scribd.com/",
+    "type": "\u958b\u653e\u77e5\u8b58\u5eab",
+    "mapping_profile": "\u77e5\u8b58\u878d\u5c64\u578b\u8154\u5361"
+  },
+  {
+    "name": "Academia.edu",
+    "url": "https://www.academia.edu/",
+    "type": "\u5b78\u8853\u7814\u7a76\u5e73\u53f0",
+    "mapping_profile": "\u6df1\u5c64\u5b78\u7406\u578b\u8154\u5361"
+  },
+  {
+    "name": "SciSpace",
+    "url": "https://scispace.com/",
+    "type": "\u79d1\u7814\u8996\u89ba\u5316",
+    "mapping_profile": "\u5716\u8b5c\u5c0e\u5411\u578b\u8154\u5361"
+  },
+  {
+    "name": "African Wildlife Foundation",
+    "url": "https://www.awf.org/",
+    "type": "\u975e\u6d32\u4fdd\u80b2",
+    "mapping_profile": "\u91ce\u57df\u502b\u7406\u578b\u8154\u5361"
+  },
+  {
+    "name": "Smithsonian National Zoo",
+    "url": "https://nationalzoo.si.edu/",
+    "type": "\u52d5\u7269\u7814\u7a76",
+    "mapping_profile": "\u751f\u7269\u5171\u611f\u578b\u8154\u5361"
+  },
+  {
+    "name": "My Modern Met",
+    "url": "https://mymodernmet.com/",
+    "type": "\u85dd\u8853\u8a2d\u8a08",
+    "mapping_profile": "\u5275\u610f\u6fc0\u767c\u578b\u8154\u5361"
+  },
+  {
+    "name": "Participant",
+    "url": "https://participant.com/",
+    "type": "\u5f71\u50cf\u6558\u4e8b",
+    "mapping_profile": "\u5f71\u97ff\u6558\u4e8b\u578b\u8154\u5361"
+  },
+  {
+    "name": "SAPIENS",
+    "url": "https://www.sapiens.org/",
+    "type": "\u958b\u653e\u5f0f\u4eba\u985e\u5b78",
+    "mapping_profile": "\u611f\u77e5\u5100\u5f0f\u578b\u8154\u5361"
+  },
+  {
+    "name": "Anthropology News",
+    "url": "https://www.anthropology-news.org/",
+    "type": "\u6587\u5316\u89c0\u5bdf",
+    "mapping_profile": "\u5730\u666f\u8a18\u61b6\u578b\u8154\u5361"
+  },
+  {
+    "name": "Cultural Anthropology",
+    "url": "https://culanth.org/",
+    "type": "\u6587\u5316\u4eba\u985e\u5b78",
+    "mapping_profile": "\u8a9e\u5834\u6298\u5c04\u578b\u8154\u5361"
+  },
+  {
+    "name": "eHRAF World Cultures",
+    "url": "https://hraf.yale.edu/",
+    "type": "\u6c11\u65cf\u8a8c\u8cc7\u6599\u5eab",
+    "mapping_profile": "\u8c61\u5fb5\u5100\u5f0f\u5eab\u578b\u8154\u5361"
+  },
+  {
+    "name": "NASA",
+    "url": "https://www.nasa.gov/",
+    "type": "\u592a\u7a7a\u89c0\u6e2c",
+    "mapping_profile": "\u93e1\u9762\u6298\u8fd4\u578b\u8154\u5361"
+  },
+  {
+    "name": "NOAA",
+    "url": "https://www.noaa.gov/",
+    "type": "\u6c23\u8c61\u6d77\u6d0b\u89c0\u6e2c",
+    "mapping_profile": "\u6ef2\u900f\u578b\u6fd5\u5ea6\u8154\u5361"
+  },
+  {
+    "name": "ESA",
+    "url": "https://www.esa.int/",
+    "type": "\u6b50\u6d32\u592a\u7a7a\u7e3d\u7f72",
+    "mapping_profile": "\u7d50\u69cb\u4ea4\u7e54\u578b\u8154\u5361"
+  },
+  {
+    "name": "UNEP",
+    "url": "https://www.unep.org/",
+    "type": "\u74b0\u5883\u8207\u6c38\u7e8c",
+    "mapping_profile": "\u88c2\u9699\u8207\u6062\u5fa9\u578b\u8154\u5361"
+  },
+  {
+    "name": "IPCC",
+    "url": "https://www.ipcc.ch/",
+    "type": "\u6c23\u5019\u8da8\u52e2\u5831\u544a",
+    "mapping_profile": "\u9707\u6e90\u87ba\u65cb\u578b\u8154\u5361"
+  },
+  {
+    "name": "The Weather Channel",
+    "url": "https://weather.com/",
+    "type": "\u5168\u7403\u5929\u6c23",
+    "mapping_profile": "\u6fc3\u9727\u5c64\u8207\u6298\u8fd4\u8ff4\u65cb\u578b\u8154\u5361"
+  },
+  {
+    "name": "Earth Observatory",
+    "url": "https://earthobservatory.nasa.gov/",
+    "type": "\u5730\u7403\u5f71\u50cf",
+    "mapping_profile": "\u6ef2\u900f\u8207\u7d30\u80de\u5c64\u6b21\u578b\u8154\u5361"
+  },
+  {
+    "name": "ESA Climate Office",
+    "url": "https://climate.esa.int/",
+    "type": "\u6c23\u5019\u6578\u64da\u4e2d\u6a1e",
+    "mapping_profile": "\u5fae\u5c64\u6b21\u6298\u8fd4\u8154\u5361"
+  }
+]
